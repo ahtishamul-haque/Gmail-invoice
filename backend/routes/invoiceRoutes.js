@@ -38,7 +38,7 @@ router.get("/oauth2callback", async (req, res) => {
       { upsert: true, new: true }
     );
 
-    res.redirect("http://localhost:3000");
+    res.redirect("/");
   } catch (err) {
     console.error("OAuth2 Callback Error:", err.message);
     res.status(500).send("Auth failed");
@@ -80,3 +80,4 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
+
