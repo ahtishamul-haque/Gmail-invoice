@@ -28,7 +28,6 @@ router.get("/oauth2callback", async (req, res) => {
     const code = req.query.code;
     const { tokens } = await oAuth2Client.getToken(code);
     oAuth2Client.setCredentials(tokens);
-
     const gmail = google.gmail({ version: "v1", auth: oAuth2Client });
     const profile = await gmail.users.getProfile({ userId: "me" });
     const email = profile.data.emailAddress;
@@ -39,13 +38,7 @@ router.get("/oauth2callback", async (req, res) => {
       { upsert: true, new: true }
     );
 
-    // 🔥 Redirect based on environment
-    const frontendUrl =
-      process.env.NODE_ENV === "production"
-        ? "https://gmail-invoice-app.onrender.com"
-        : "http://localhost:3000";
-
-    res.redirect(frontendUrl);
+    res.redirect("http://localhost:3000");
   } catch (err) {
     console.error("OAuth2 Callback Error:", err.message);
     res.status(500).send("Auth failed");
@@ -87,5 +80,3 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
-
-
