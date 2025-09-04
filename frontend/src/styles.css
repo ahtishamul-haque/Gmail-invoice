@@ -1,0 +1,118 @@
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin: 0;
+  background: #f6f7fb;
+  color: #111;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #0b1220;
+  color: #fff;
+}
+.brand {
+  font-weight: 700;
+}
+.actions .btn {
+  background: #06f;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* Page Layout */
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+.toolbar {
+  margin-bottom: 12px;
+}
+.btn {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #333;
+  color: #fff;
+}
+.btn.primary {
+  background: #0b5fff;
+}
+
+/* Summary Card */
+.summary-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0 24px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Category Card */
+.category-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(12,18,30,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.category-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(12,18,30,0.12);
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.category-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0b1220;
+}
+.category-total {
+  font-weight: 700;
+  color: #0b5fff;
+}
+
+/* Invoice Items */
+.invoice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.invoice-item {
+  padding: 12px 0;
+  border-top: 1px solid #eee;
+}
+.invoice-item:first-child {
+  border-top: none;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+.item-amount {
+  font-weight: 600;
+  color: #0b5fff;
+}
