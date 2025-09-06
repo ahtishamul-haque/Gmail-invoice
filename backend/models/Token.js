@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const tokenSchema = new mongoose.Schema({
-  user: { type: String, required: true }, // Gmail email address
+  user: { type: String, required: true },
   access_token: String,
   refresh_token: String,
   scope: String,
@@ -10,3 +10,4 @@ const tokenSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Token", tokenSchema);
+
