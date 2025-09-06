@@ -1,7 +1,7 @@
 const { google } = require("googleapis");
 const fs = require("fs");
 const path = require("path");
-const crypto = require("crypto"); // Add at the top of the file
+const crypto = require("crypto");
 
 const TOKEN_PATH = path.join(__dirname, "..", "token.json");
 
@@ -126,8 +126,7 @@ async function fetchInvoicesFromGmail(oAuth2Client, { maxResults = 25 } = {}) {
     const full = await gmail.users.messages.get({ userId: "me", id: m.id });
     const rawBody = getBody(full.data.payload) || "";
     const bodyText = stripHtml(rawBody);
-
-    console.log("📩 Gmail Body for message:", m.id);
+    
     console.log(bodyText.substring(0, 300));
 
     const vendor = parseVendor(bodyText);
@@ -137,18 +136,18 @@ async function fetchInvoicesFromGmail(oAuth2Client, { maxResults = 25 } = {}) {
 
     const emailTimestamp = full.data.internalDate ? new Date(Number(full.data.internalDate)) : new Date();
 
-    // ✅ One invoice per email
+    // One invoice per email
     const invoiceCode = [
-      vendor.substring(0, 3).toUpperCase(), // First 3 letters of vendor
+      vendor.substring(0, 3).toUpperCase(),
       emailTimestamp.getFullYear(),
       (emailTimestamp.getMonth() + 1).toString().padStart(2, "0"),
       emailTimestamp.getDate().toString().padStart(2, "0"),
-      crypto.randomBytes(3).toString("hex") // 6 random hex chars
+      crypto.randomBytes(3).toString("hex") 
     ].join("-");
 
     const invoiceObj = {
       gmailId: m.id,
-      invoiceCode, // <-- Add this line
+      invoiceCode, 
       vendor,
       items: items.length > 0
         ? items
@@ -179,3 +178,4 @@ module.exports = {
   fetchInvoicesFromGmail,
   TOKEN_PATH
 };
+
