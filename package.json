@@ -1,5 +1,5 @@
 {
-  "name": "invoice-app",
+  "name": "gmail-invoice",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -11,3 +11,4 @@
     "concurrently": "^8.2.2"
   }
 }
+
