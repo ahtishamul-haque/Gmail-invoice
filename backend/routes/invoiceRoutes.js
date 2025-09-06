@@ -55,7 +55,7 @@ router.post("/sync", async (req, res) => {
     const invoicesFromGmail = await fetchInvoicesFromGmail(oAuth2Client, { maxResults: 10 });
 
     for (const inv of invoicesFromGmail) {
-      if (!inv.gmailId || !inv.date) continue; // Skip if missing gmailId or date
+      if (!inv.gmailId || !inv.date) continue;
       await Invoice.updateOne(
         { gmailId: inv.gmailId },
         inv,
@@ -80,4 +80,5 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
+
 
