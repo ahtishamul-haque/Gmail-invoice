@@ -1,4 +1,3 @@
-// backend/models/Invoice.js
 const mongoose = require("mongoose");
 
 const ItemSchema = new mongoose.Schema(
@@ -14,10 +13,10 @@ const ItemSchema = new mongoose.Schema(
 const InvoiceSchema = new mongoose.Schema(
   {
     gmailId: { type: String, required: true, unique: true },
-    invoiceCode: { type: String, required: true, unique: true }, // <-- Add this line
+    invoiceCode: { type: String, required: true, unique: true }, 
     vendor: { type: String, default: "Unknown" },
-    items: { type: [ItemSchema], default: [] }, // ✅ now supports multiple items
-    amount: { type: Number, default: 0 }, // ✅ total invoice amount
+    items: { type: [ItemSchema], default: [] }, 
+    amount: { type: Number, default: 0 }, 
     currency: { type: String, default: "INR" },
     paymentMethod: { type: String, default: "Unknown" },
     category: { type: String, default: "Other" },
@@ -28,3 +27,4 @@ const InvoiceSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("Invoice", InvoiceSchema);
+
